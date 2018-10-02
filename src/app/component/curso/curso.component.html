@@ -2,6 +2,14 @@
   <ul>
     <li>Materia: {{ curso.materia }}</li>
     <li>Curso: {{ curso.codigo }}</li>
-    <li><u>**mostrar lista alumnos</u></li>
+    <!--<li><u>**mostrar lista alumnos</u></li>-->
+    <li>Estado: {{ curso.estadoString }}  </li>
+    <li>
+      <select (change)="onSelectChange($event.target.value)">
+        <option value="0">Pendiente</option>
+        <option value="1">Activo</option>
+        <option value="2">Inactivo</option>
+      </select>
+    </li>
   </ul>
 </div>

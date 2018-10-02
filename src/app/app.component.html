@@ -21,7 +21,7 @@
 
 <div>
   <h1>Curso</h1>
-  <app-curso [curso]="curso"></app-curso>
+  <app-curso [curso]="curso"  (cambioEstado)="cambioEstado($event)"></app-curso>
   <h2>Docente</h2>
   <app-docente [docente]="docente"></app-docente>
   <h2>Alumno</h2>
