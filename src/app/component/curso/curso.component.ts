@@ -38,8 +38,7 @@ export class CursoComponent implements OnInit {
     //this.curso.estadoString = Estado[value];
 
     this.cambioEstado.emit(value);
-    let cssClassTmp = this.cssClass+ ' ';
-    this.cssClass= cssClassTmp+ 'container';
+    this.cssClass= this.cssClass+ 'panel panel-primary ';
 
   }
 
