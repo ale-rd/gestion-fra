@@ -43,11 +43,4 @@ export class AppComponent {
   }
 
   private cssClass: string;
-
-  public cambioEstado($event) {
-    this.curso.estadoString = Estado[$event];
-    this.curso.estado = <Estado>$event;
-    console.log(Estado[this.curso.estado]);
-   
-  }
 }

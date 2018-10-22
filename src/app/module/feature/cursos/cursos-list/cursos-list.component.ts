@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ICurso } from '../../../../interface/icurso';
+import { Estado } from '../../../../enum/estado.enum';
 
 @Component({
   selector: 'app-cursos-list',
@@ -13,6 +14,13 @@ export class CursosListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public cambioEstado($event, curso: ICurso) {
+    curso.estadoString = Estado[$event];
+    curso.estado = <Estado>$event;
+    console.log(Estado[curso.estado]);
+   
   }
 
 }

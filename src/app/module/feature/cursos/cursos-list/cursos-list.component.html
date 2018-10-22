@@ -1,7 +1,7 @@
 <div>
   <ul>
     <li *ngFor="let curso of cursos; let i = index" >
-        <app-curso [curso]="curso"  (cambioEstado)="cambioEstado($event)"></app-curso>
+        <app-curso [curso]="curso"  (cambioEstado)="cambioEstado($event, curso)"></app-curso>
     </li>
     
   </ul>
