@@ -4,7 +4,9 @@
 
 <div class="container">
   <h1>Curso</h1>
-  <app-cursos-list [cursos]="cursos"></app-cursos-list>
+  <div *ngIf="cursos">
+    <app-cursos-list [cursos]="cursos"></app-cursos-list>
+  </div>
   <h2>Docente</h2>
   <app-docente [docente]="docente"></app-docente>
   <h2>Alumno</h2>
