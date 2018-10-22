@@ -4,19 +4,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AlumnoComponent } from './component/alumno/alumno.component';
-import { CursoComponent } from './component/curso/curso.component';
 import { DocenteComponent } from './component/docente/docente.component';
+import { CursosModule } from './module/feature/cursos/cursos.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AlumnoComponent,
-    CursoComponent,
     DocenteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CursosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
