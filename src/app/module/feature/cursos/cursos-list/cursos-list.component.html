@@ -2,7 +2,7 @@
   <ul class="list-group">
     <li *ngFor="let curso of cursos; let i = index" class="list-group-item">
         <!-- <app-curso [curso]="curso"  (cambioEstado)="cambioEstado($event, curso)"></app-curso> -->
-        <a [routerLink]="['/curso', curso.codigo]" class="btn btn-info btn-block" role="button" (cambioEstado)="cambioEstado($event, curso)">
+        <a [routerLink]="['/curso', curso.codigo]" class="btn btn-info btn-block" role="button">
           {{ curso.codigo + ' - ' + curso.materia}}
         </a>
     </li>

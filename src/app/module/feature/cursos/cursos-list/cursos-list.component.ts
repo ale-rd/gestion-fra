@@ -16,11 +16,4 @@ export class CursosListComponent implements OnInit {
   ngOnInit() {
   }
 
-  public cambioEstado($event, curso: ICurso) {
-    curso.estadoString = Estado[$event];
-    curso.estado = <Estado>$event;
-    console.log(Estado[curso.estado]);
-   
-  }
-
 }

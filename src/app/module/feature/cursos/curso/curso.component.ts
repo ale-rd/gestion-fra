@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ICurso } from '../../../../interface/icurso';
 import { CursoService } from '../curso.service';
-import { ActivatedRoute } from '@angular/router';
+import { Estado } from '../../../../enum/estado.enum';
 
 @Component({
   selector: 'app-curso',
@@ -10,16 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CursoComponent implements OnInit, OnDestroy {
 
-  // @Input() curso: ICurso;
-  curso: ICurso;
-  @Input() codigo: string;
-  @Output() cambioEstado: EventEmitter<number> = new EventEmitter<number>();
-  @HostBinding('attr.class') cssClass = '';
+  // Recibo por param y lo busco en el service, para luego pasarlo a CursoItemComponent
+  private codigo: string;
+  private curso: ICurso;
+
   
   private sub: any;
 
-    // ver interface DoCheck (cuando cambia la property de un objeto, y no el objeto en sí)
-  
+ 
   constructor(private cursoService: CursoService, private route: ActivatedRoute) { 
     // No se puede acceder a los valores de los @Input
     this.cursoService = cursoService;
@@ -33,7 +32,7 @@ export class CursoComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.codigo = params['codigo']; 
 
-      // acción a ejecutar luego de que hubo un cambio en los parámetros
+    //   // acción a ejecutar luego de que hubo un cambio en los parámetros
       this.curso = this.cursoService.findByCodigo(this.codigo);
     });    
   }
@@ -42,20 +41,11 @@ export class CursoComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  onSelectChange(value: number){
-    // TODO: Leer sobre $event
-    // $event.target.value
-    //        .target -> referencia
-    //              .value -> valor que seleccionó el usuario
-    console.log(value);
-
-    //FIXME: hacer esto con @Output
-    //       Cambiar clase con @HostBinding
-    //this.curso.estadoString = Estado[value];
-
-    this.cambioEstado.emit(value);
-    this.cssClass= this.cssClass+ 'panel panel-primary ';
-
+  public cambioEstado($event) {
+    this.curso.estadoString = Estado[$event];
+    this.curso.estado = <Estado>$event;
+    console.log(Estado[this.curso.estado]);
+   
   }
 
 }
