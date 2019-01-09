@@ -18,7 +18,8 @@ import { CursoService } from './curso.service';
   ],
   exports: [
     CursoComponent,
-    CursosListComponent
+    CursosListComponent,
+    CursoItemComponent
   ],
   providers: [
     CursoService

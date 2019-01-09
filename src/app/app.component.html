@@ -1,7 +1,27 @@
-<div class="jumbotron text-center">
-  <h1>Angular FRA</h1>
-</div>
+<div class="container-fluid">
+  <!-- Header x12 -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron text-center">
+        <h1>Angular FRA</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Menu x3 - Content x6- Detail x3 -->
+  <div class="row">
+    <div class="col-md-2"><app-menu></app-menu></div>
+    <div class="col-md-7">Content</div>
+    <div class="col-md-3">Details</div>
+  </div>
+  <!-- Footer x12 -->
+  <br/>
+  <div class="row">
+    <div class="col-md-12">Footer</div>
+  </div>
 
+  <router-outlet></router-outlet>
+</div>
+<!-- 
 <div class="container">
   <h1>Curso</h1>
   <div *ngIf="cursos">
@@ -12,5 +32,5 @@
   <h2>Alumno</h2>
   <app-alumno [alumno]="alumno"></app-alumno>
   
-</div>
+</div> -->
 

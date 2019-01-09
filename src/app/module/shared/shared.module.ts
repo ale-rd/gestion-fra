@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
-  declarations: []
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
+  declarations: [MenuComponent],
+  exports:[
+    MenuComponent
+  ]
 })
 export class SharedModule { }
