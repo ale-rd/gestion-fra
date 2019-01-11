@@ -1,3 +1,4 @@
+import { AlumnosModule } from './module/feature/alumnos/alumnos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { CursosModule } from './module/feature/cursos/cursos.module';
 import { RoutesModule } from './module/routes/routes.module';
 import { SharedModule } from './module/shared/shared.module';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { DocentesModule } from './module/feature/docentes/docentes.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    CursosModule,
     RoutesModule,
-    SharedModule
+    SharedModule,
+    CursosModule,
+    AlumnosModule,
+    DocentesModule
   ],
   providers: [{
     provide: LocationStrategy,

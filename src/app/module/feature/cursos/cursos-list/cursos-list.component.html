@@ -1,12 +1,20 @@
 <div>
-  <ul class="list-group">
-    <li *ngFor="let curso of cursos; let i = index" class="list-group-item">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Materia</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let curso of cursos; let i = index" class="success">
         <!-- <app-curso [curso]="curso"  (cambioEstado)="cambioEstado($event, curso)"></app-curso> -->
-        <a [routerLink]="['/curso', curso.codigo]" class="btn btn-info btn-block" role="button">
-          {{ curso.codigo + ' - ' + curso.materia}}
-        </a>
-    </li>
-    
-  </ul>
+        <td>{{ curso.codigo }}</td>
+        <td>{{ curso.materia }}</td>
+        <td>{{ curso.estadoString }}</td>
+      </tr>
+    </tbody>
+  </table>
   <router-outlet></router-outlet>
 </div>

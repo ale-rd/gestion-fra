@@ -5,6 +5,7 @@ import { CursoComponent } from './curso/curso.component';
 import { CursosListComponent } from './cursos-list/cursos-list.component';
 import { RoutesModule } from '../../routes/routes.module';
 import { CursoService } from './curso.service';
+import { CursosComponent } from './cursos/cursos.component';
 
 @NgModule({
   imports: [
@@ -14,9 +15,11 @@ import { CursoService } from './curso.service';
   declarations: [
     CursoComponent,
     CursoItemComponent,
-    CursosListComponent
+    CursosListComponent,
+    CursosComponent
   ],
   exports: [
+    CursosComponent,
     CursoComponent,
     CursosListComponent,
     CursoItemComponent
