@@ -2,17 +2,22 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Código</th>
-        <th>Materia</th>
+        <th>Curso</th>
+        <th>Inicio</th>
+        <th>Fin</th>
+        <!-- <th>Asistentes</th> -->
+        <th>Docente</th>
         <th>Estado</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let curso of cursos; let i = index" class="success">
+      <tr *ngFor="let curso of cursos; let i = index" (click)="seleccionarCurso(curso, i)" [class.table-info]="i==selectedRow">
         <!-- <app-curso [curso]="curso"  (cambioEstado)="cambioEstado($event, curso)"></app-curso> -->
-        <td>{{ curso.codigo }}</td>
-        <td>{{ curso.materia }}</td>
-        <td>{{ curso.estadoString }}</td>
+        <td>{{ curso.titulo }}</td>
+        <td>{{ curso.fechaInicio | date:'dd/MM/yyyy'}}</td>
+        <td>{{ curso.fechaFin | date:'dd/MM/yyyy' }}</td>
+        <td>{{ curso.profesor.nombre + ' ' + curso.profesor.apellido }}</td>
+        <td>{{ Estado[curso.estado] }}</td>
       </tr>
     </tbody>
   </table>

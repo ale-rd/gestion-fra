@@ -1,8 +1,5 @@
-import { ICurso } from "./icurso";
-
 export interface IDocente {
+    id: number;
     nombre: string;
     apellido: string;
-    matricula: string;
-    cursos: Array<ICurso>;
 }

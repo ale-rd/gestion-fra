@@ -1,15 +1,73 @@
-<div>
-  <ul class="list-group">
-    <li class="list-group-item">Materia: {{ curso.materia }}</li>
-    <li class="list-group-item">Curso: {{ curso.codigo }}</li>
+<h5>Datos adicionales</h5>
+<div *ngIf="curso " class="well">
+  
+  <table class="table table-bordered">
+    <tbody>
+      <tr class="table-active">
+        <td scope="row"><strong>Materia</strong></td>
+        <td>{{ curso.titulo }}</td>
+      </tr>
+      <tr>
+        <td scope="row"><strong>ID</strong></td>
+        <td>{{ curso.id }}</td>
+      </tr>
+      <tr>
+        <!-- <td scope="row"><strong>Inicio</strong></td>
+        <td>{{ curso.fechaInicio | date:'dd/MM/yyyy' }}</td>
+      </tr>
+      <tr>
+        <td scope="row"><strong>Fin</strong></td>
+        <td>{{ curso.fechaFin | date:'dd/MM/yyyy' }}</td>
+      </tr> -->
+      <tr>
+        <td scope="row"><strong>Docente</strong></td>
+        <td>{{ curso.profesor.nombre + " " + curso.profesor.apellido }}</td>
+      </tr>
+      <tr>
+        <td scope="row"><strong>Laboratorio</strong></td>
+        <td>{{ curso.laboratorio }} </td>
+      </tr>
+      <tr>
+        <td scope="row"><strong>Precio</strong></td>
+        <td>{{ curso.precio }}</td>
+      </tr>
+      <tr>
+        <td scope="row"><strong>Asistentes</strong></td>
+        <td>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let asistente of curso.asistentes;">{{ asistente }}</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <!-- Ejemplo form -->
+  <!-- <form class="form-horizontal" [formGroup]="detalleForm" (ngSubmit)="onSubmitDetalleForm()">
+    <div class="form-group">
+      <label for="id" class="control-label col-sm-2">ID</label>
+      <div class="col-sm-10"><input type="number" id="id" name="id" class="form-control" formControlName="id"></div>
+    </div>
+    <input type="submit" value="Submit" [disabled]="!detalleForm.valid">
+  </form> -->
+
+
+
+
+  <!-- <ul class="list-group">
+    <li class="list-group-item">Curso: {{ curso.titulo }}</li>
+    <li class="list-group-item">Id: {{ curso.id }}</li> -->
     <!--<li><u>**mostrar lista alumnos</u></li>-->
-    <li class="list-group-item">Estado: {{ curso.estadoString }}  </li>
-    <li class="list-group-item">
+    <!-- <li class="list-group-item">Estado: {{ curso.estadoString }}  </li> -->
+    <!-- <li class="list-group-item">
       <select (change)="onSelectChange($event.target.value)" class="form-control">
         <option value="0">Pendiente</option>
         <option value="1">Activo</option>
         <option value="2">Inactivo</option>
       </select>
-    </li>
-  </ul>
+    </li> -->
+  <!-- </ul> -->
 </div>

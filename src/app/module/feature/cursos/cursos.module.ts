@@ -6,11 +6,14 @@ import { CursosListComponent } from './cursos-list/cursos-list.component';
 import { RoutesModule } from '../../routes/routes.module';
 import { CursoService } from './curso.service';
 import { CursosComponent } from './cursos/cursos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    RoutesModule
+    RoutesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     CursoComponent,

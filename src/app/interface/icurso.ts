@@ -1,10 +1,14 @@
-import { IAlumno } from "./ialumno";
-import { Estado } from "../enum/estado.enum";
+import { Estado } from './../enum/estado.enum';
+import { IDocente } from "./idocente";
 
 export interface ICurso {
-    codigo: string;
-    materia: string; // Esto debería ser otra clase
-    alumnos: Array<IAlumno>;
+    id: number;
+    titulo: string;
+    fechaInicio: Date;
+    fechaFin: Date;
+    asistentes: Array<string>;
+    profesor: IDocente;
+    laboratorio: number;
     estado: Estado;
-    estadoString: string;
+    precio: number;
 }

@@ -12,7 +12,7 @@ import { Estado } from '../../../../enum/estado.enum';
 export class CursoComponent implements OnInit, OnDestroy {
 
   // Recibo por param y lo busco en el service, para luego pasarlo a CursoItemComponent
-  private codigo: string;
+  private id: number;
   private curso: ICurso;
 
   
@@ -30,10 +30,10 @@ export class CursoComponent implements OnInit, OnDestroy {
 
     // me suscribo a cambios en los parámetros.
     this.sub = this.route.params.subscribe(params => {
-      this.codigo = params['codigo']; 
+      this.id = params['id']; 
 
     //   // acción a ejecutar luego de que hubo un cambio en los parámetros
-      this.curso = this.cursoService.findByCodigo(this.codigo);
+      this.curso = this.cursoService.findById(this.id);
     });    
   }
 
@@ -42,9 +42,11 @@ export class CursoComponent implements OnInit, OnDestroy {
   }
 
   public cambioEstado($event) {
+    /*
     this.curso.estadoString = Estado[$event];
     this.curso.estado = <Estado>$event;
     console.log(Estado[this.curso.estado]);
+    */
    
   }
 
