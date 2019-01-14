@@ -4,8 +4,8 @@ import { IDocente } from "./idocente";
 export interface ICurso {
     id: number;
     titulo: string;
-    fechaInicio: Date;
-    fechaFin: Date;
+    fechaInicio: number;
+    fechaFin: number;
     asistentes: Array<string>;
     profesor: IDocente;
     laboratorio: number;

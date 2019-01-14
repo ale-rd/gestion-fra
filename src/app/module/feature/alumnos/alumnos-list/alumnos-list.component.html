@@ -1,0 +1,18 @@
+<div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumno of alumnos; let i = index" (click)="seleccionaralumno(alumno, i)" [class.table-info]="i==selectedRow">
+          <!-- <app-alumno [alumno]="alumno"  (cambioEstado)="cambioEstado($event, alumno)"></app-alumno> -->
+          <td>{{ alumno.nombre }}</td>
+          <td>{{ alumno.apellido }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <router-outlet></router-outlet>
+  </div>

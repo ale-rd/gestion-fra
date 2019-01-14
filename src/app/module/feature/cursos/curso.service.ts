@@ -1,11 +1,32 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit, ChangeDetectorRef, ApplicationRef, NgZone } from '@angular/core';
 import { ICurso } from '../../../interface/icurso';
-import { Estado } from '../../../enum/estado.enum';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CursoService {
   
-  private cursos: Array<ICurso> = [
+  private cursos: Array<ICurso> = [];
+    
+    constructor(private http: HttpClient) {
+      let cursos$ = this.http.get('https://demo3744158.mockable.io/cursos');
+      cursos$.subscribe( (cursos:Array<ICurso>) => {
+        this.cursos.push(...cursos);
+      });
+    }
+    
+    public findAll(): Array<ICurso>{
+      return this.cursos;
+    }
+    
+    public findById(id: number): ICurso{
+      return this.cursos.find(x => x.id == id);
+    }
+  }
+  
+
+/*
+https://demo3744158.mockable.io/cursos
+private cursos: Array<ICurso> = [
     {
       id: 22,
       titulo: "Angular",
@@ -65,15 +86,5 @@ export class CursoService {
       "estado": Estado.Pendiente,
       "precio": 2500
     }]
-    
-    constructor() { }
-    
-    public findAll(): Array<ICurso>{
-      return this.cursos;
-    }
-    
-    public findById(id: number): ICurso{
-      return this.cursos.find(x => x.id == id);
-    }
-  }
-  
+
+*/

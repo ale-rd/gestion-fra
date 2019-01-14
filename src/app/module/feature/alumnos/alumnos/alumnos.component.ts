@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AlumnoService } from './../alumno.service';
+import { IAlumno } from './../../../../interface/ialumno';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-alumnos',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlumnosComponent implements OnInit {
 
-  constructor() { }
+  alumnos: Array<IAlumno>;
+  alumnoEnDetalle: IAlumno;
+
+  constructor(private alumnoService: AlumnoService) {
+    this.alumnos = alumnoService.findAll();
+   }
 
   ngOnInit() {
   }
+
+  mostrarDetalleAlumno(unAlumno, index): void{
+    this.alumnoEnDetalle = unAlumno;
+  }
+
+
 
 }

@@ -1,17 +1,21 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { CursoItemComponent } from './curso-item/curso-item.component';
-import { NgModule } from '@angular/core';
+import { NgModule, ChangeDetectorRef } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { CursoComponent } from './curso/curso.component';
 import { CursosListComponent } from './cursos-list/cursos-list.component';
 import { RoutesModule } from '../../routes/routes.module';
 import { CursoService } from './curso.service';
 import { CursosComponent } from './cursos/cursos.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RoutesModule,
+    BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -22,10 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CursosComponent
   ],
   exports: [
-    CursosComponent,
-    CursoComponent,
-    CursosListComponent,
-    CursoItemComponent
+    CursosComponent
   ],
   providers: [
     CursoService

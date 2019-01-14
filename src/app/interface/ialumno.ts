@@ -1,7 +1,7 @@
 export interface IAlumno {
     nombre: string;
     apellido: string;
-    fechaNacimiento: Date;
+    fechaNacimiento: number;
     tipoDocumento: number;
     documento: number;
     comunidad: boolean;

@@ -1,10 +1,11 @@
 <div class="row">
     <div class="col-md-8">
-      Contenido del alumno (probably alumnos-list, ToDo)
+        <h3>Listado de alumnos</h3>
+        <app-alumnos-list [alumnos]="alumnos" (alumnoSeleccionado)="mostrarDetalleAlumno($event)"></app-alumnos-list>
     </div>
   
     <div class="col-md-4">
-      Detalles del alumnos (+ botón para dar de alta uno nuevo)
+      <app-alumno-item [alumno]="alumnoEnDetalle"></app-alumno-item>
     </div>
   
   </div>
