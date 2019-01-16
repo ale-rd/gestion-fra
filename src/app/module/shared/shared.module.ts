@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -12,9 +13,10 @@ import { RouterModule } from '@angular/router';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, FooterComponent],
   exports:[
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

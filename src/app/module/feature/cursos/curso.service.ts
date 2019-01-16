@@ -21,6 +21,15 @@ export class CursoService {
     public findById(id: number): ICurso{
       return this.cursos.find(x => x.id == id);
     }
+
+    public findByIds(ids: Array<number>): Array<ICurso>{
+      let cursos: Array<ICurso> = [];
+      // TODO: Cambiar por lambda u función de orden superior
+      for(let id of ids){
+        cursos.push(this.findById(id));
+      }
+      return cursos;
+    }
   }
   
 
