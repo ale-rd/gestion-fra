@@ -3,6 +3,7 @@ import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/c
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { EnumToArrayPipe } from './pipe/enum-to-array.pipe';
 
 @NgModule({
   imports: [
@@ -13,10 +14,15 @@ import { FooterComponent } from './footer/footer.component';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
-  declarations: [MenuComponent, FooterComponent],
+  declarations: [
+    MenuComponent,
+    FooterComponent,
+    EnumToArrayPipe
+  ],
   exports:[
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    EnumToArrayPipe
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,93 @@
+<!-- Form con B4, tal vez para ingresar a un detalle por los botones -->
+
+<form action="#" class="form" [formGroup]="alumnoForm" (ngSubmit)="onSubmitAlumnoForm()">
+  <h5> status: {{ alumnoForm.status }} </h5>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" formControlName="nombre" name="nombre" id="nombre" required class="form-control">
+      </div>
+      <!-- <div *ngIf="alumnoForm.nombre.errors.required">El nombre es obligatorio</div> -->
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" formControlName="apellido" name="apellido" id="apellido" class="form-control" required>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" id="fechaNacimiento" class="form-control" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label for="tipoDocumento">Tipo de Doc</label>
+        <select type="select" formControlName="tipoDocumento" name="tipoDocumento" id="tipoDocumento" class="form-control" required>
+          <option value=""></option>
+          <option *ngFor="let tipoDoc of TipoDocumento | enumToArray;" [value]="tipoDoc[1]">{{tipoDoc[0]}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="form-group">
+        <label for="documento">Número de Documento</label>
+        <input type="text" name="documento" id="documento" class="form-control" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="legajo">Legajo</label>
+        <input type="text" formControlName="legajo" name="legajo" id="legajo" class="form-control" placeholder="">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" formControlName="comunidad" name="comunidad" id="comunidad" class="form-check-input">
+          ¿Comunidad UTN?
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="cursos">Cursos</label>
+        <input type="text" formControlName="cursos" name="cursos" id="cursos" class="form-control" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <input type="submit" [disabled]="!alumnoForm.valid" class="btn btn-primary btn-block">
+      Submit
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary btn-block" (click)="showErrors()">
+        show errors
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+</form>

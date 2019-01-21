@@ -1,3 +1,5 @@
+import { SharedModule } from './../../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AlumnoService } from './alumno.service';
@@ -7,18 +9,24 @@ import { AlumnosComponent } from './alumnos/alumnos.component';
 import { RoutesModule } from '../../routes/routes.module';
 import { AlumnosListComponent } from './alumnos-list/alumnos-list.component';
 import { AlumnoItemComponent } from './alumno-item/alumno-item.component';
+import { AlumnoNuevoComponent } from './alumno-nuevo/alumno-nuevo.component';
+import { AlumnoFormComponent } from './alumno-form/alumno-form.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RoutesModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   declarations: [
     AlumnosComponent,
     AlumnosListComponent,
-    AlumnoItemComponent
+    AlumnoItemComponent,
+    AlumnoNuevoComponent,
+    AlumnoFormComponent
   ],
   exports: [
     AlumnosComponent
